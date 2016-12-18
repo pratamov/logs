@@ -1,0 +1,157 @@
+E:\oc-3.3.0.35-1-windows>oc describe pod/wildfly10-1-2y6fj
+Name:                   wildfly10-1-2y6fj
+Namespace:              jhsdjkas
+Security Policy:        restricted
+Node:                   ip-172-31-8-207.ec2.internal/172.31.8.207
+Start Time:             Fri, 16 Dec 2016 14:38:53 +0700
+Labels:                 app=wildfly10
+                        deployment=wildfly10-1
+                        deploymentconfig=wildfly10
+Status:                 Running
+IP:                     10.1.79.2
+Controllers:            ReplicationController/wildfly10-1
+Containers:
+  wildfly10:
+    Container ID:       docker://fadba783bd71d50aac65228a9248b470a89bc86d8661542bc0cb70cf791d344f
+    Image:              172.30.47.227:5000/jhsdjkas/wildfly10@sha256:71c63f5886d6ee0c41d1ce4b6bbd650504acf9d739d6b61088723f25f53e894d
+    Image ID:           docker-pullable://172.30.47.227:5000/jhsdjkas/wildfly10@sha256:71c63f5886d6ee0c41d1ce4b6bbd650504acf9d739d6b61088723f25f53e894d
+    Port:               8080/TCP
+    Limits:
+      cpu:      1
+      memory:   512Mi
+    Requests:
+      cpu:              60m
+      memory:           307Mi
+    State:              Running
+      Started:          Fri, 16 Dec 2016 14:39:12 +0700
+    Ready:              True
+    Restart Count:      0
+    Volume Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-gepn2 (ro)
+    Environment Variables:      <none>
+Conditions:
+  Type          Status
+  Initialized   True
+  Ready         True
+  PodScheduled  True
+Volumes:
+  default-token-gepn2:
+    Type:       Secret (a volume populated by a Secret)
+    SecretName: default-token-gepn2
+QoS Tier:       Burstable
+No events.
+
+E:\oc-3.3.0.35-1-windows>oc port-forward wildfly10-1-2y6fj 9990 --loglevel=8
+I1217 22:04:33.773516   12928 loader.go:330] Config loaded from file C:\Users\Profisien/.kube/config
+I1217 22:04:33.790517   12928 round_trippers.go:296] GET https://api.preview.openshift.com:443/api
+I1217 22:04:33.790517   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:33.791517   12928 round_trippers.go:306]     Accept: application/json, */*
+I1217 22:04:33.791517   12928 round_trippers.go:306]     Authorization: Bearer IqtWp6uL9VxAMGC9YarbEnUfqHTBi2-_5lBEDYleO7o
+I1217 22:04:33.792517   12928 round_trippers.go:306]     User-Agent: oc/v1.3.0+52492b4 (windows/amd64) kubernetes/52492b4
+I1217 22:04:35.857636   12928 round_trippers.go:321] Response Status: 200 OK in 2065 milliseconds
+I1217 22:04:35.858636   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:35.859636   12928 round_trippers.go:327]     Cache-Control: no-store
+I1217 22:04:35.863636   12928 round_trippers.go:327]     Content-Type: application/json
+I1217 22:04:35.866636   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:44 GMT
+I1217 22:04:35.869636   12928 round_trippers.go:327]     Content-Length: 134
+I1217 22:04:35.874637   12928 request.go:901] Response Body: {"kind":"APIVersions","versions":["v1"],"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]}
+I1217 22:04:35.878637   12928 round_trippers.go:296] GET https://api.preview.openshift.com:443/apis
+I1217 22:04:35.880637   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:35.883637   12928 round_trippers.go:306]     Accept: application/json, */*
+I1217 22:04:35.886637   12928 round_trippers.go:306]     User-Agent: oc/v1.3.0+52492b4 (windows/amd64) kubernetes/52492b4
+I1217 22:04:35.890637   12928 round_trippers.go:306]     Authorization: Bearer IqtWp6uL9VxAMGC9YarbEnUfqHTBi2-_5lBEDYleO7o
+I1217 22:04:36.292660   12928 round_trippers.go:321] Response Status: 200 OK in 398 milliseconds
+I1217 22:04:36.293660   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:36.294661   12928 round_trippers.go:327]     Content-Type: application/json
+I1217 22:04:36.297661   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:44 GMT
+I1217 22:04:36.301661   12928 round_trippers.go:327]     Content-Length: 1372
+I1217 22:04:36.304661   12928 round_trippers.go:327]     Cache-Control: no-store
+I1217 22:04:36.307661   12928 request.go:901] Response Body: {"kind":"APIGroupList","groups":[{"name":"apps","versions":[{"groupVersion":"apps/v1alpha1","version":"v1alpha1"}],"preferredVersion":{"gr
+upVersion":"apps/v1alpha1","version":"v1alpha1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]},{"name":"authentication.k8s.io","versions":[{"groupVersi
+n":"authentication.k8s.io/v1beta1","version":"v1beta1"}],"preferredVersion":{"groupVersion":"authentication.k8s.io/v1beta1","version":"v1beta1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0
+,"serverAddress":"172.31.10.24:443"}]},{"name":"autoscaling","versions":[{"groupVersion":"autoscaling/v1","version":"v1"}],"preferredVersion":{"groupVersion":"autoscaling/v1","version":"v1"},"serverA
+dressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]},{"name":"batch","versions":[{"groupVersion":"batch/v1","version":"v1"},{"groupVersion":"batch/v2alpha1","version":
+v2alpha1"}],"preferredVersion":{"groupVersion":"batch/v1","version":"v1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]},{"name":"extensions","versions"
+[{"groupVersion":"extensions/v1beta1","version":"v1beta1"}],"preferredVersion":{"groupVersion":"extensions/v1beta1","version":"v1beta1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serve
+Address":"172.31.10.24:443"}]}]}
+I1217 22:04:36.316662   12928 round_trippers.go:296] GET https://api.preview.openshift.com:443/api/v1/namespaces/jhsdjkas/pods/wildfly10-1-2y6fj
+I1217 22:04:36.318662   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:36.319662   12928 round_trippers.go:306]     Accept: application/json, */*
+I1217 22:04:36.322662   12928 round_trippers.go:306]     User-Agent: oc/v1.3.0+52492b4 (windows/amd64) kubernetes/52492b4
+I1217 22:04:36.325662   12928 round_trippers.go:306]     Authorization: Bearer IqtWp6uL9VxAMGC9YarbEnUfqHTBi2-_5lBEDYleO7o
+I1217 22:04:36.780688   12928 round_trippers.go:321] Response Status: 200 OK in 451 milliseconds
+I1217 22:04:36.781688   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:36.782688   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:44 GMT
+I1217 22:04:36.786689   12928 round_trippers.go:327]     Cache-Control: no-store
+I1217 22:04:36.789689   12928 round_trippers.go:327]     Content-Type: application/json
+I1217 22:04:36.793689   12928 request.go:901] Response Body: {"kind":"Pod","apiVersion":"v1","metadata":{"name":"wildfly10-1-2y6fj","generateName":"wildfly10-1-","namespace":"jhsdjkas","selfLink":"/a
+i/v1/namespaces/jhsdjkas/pods/wildfly10-1-2y6fj","uid":"b1a56ceb-c362-11e6-9290-0ebeb1070c7f","resourceVersion":"537479323","creationTimestamp":"2016-12-16T07:38:53Z","labels":{"app":"wildfly10","dep
+oyment":"wildfly10-1","deploymentconfig":"wildfly10"},"annotations":{"kubernetes.io/created-by":"{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationControlle
+\",\"namespace\":\"jhsdjkas\",\"name\":\"wildfly10-1\",\"uid\":\"ab6ab8e8-c362-11e6-9290-0ebeb1070c7f\",\"apiVersion\":\"v1\",\"resourceVersion\":\"537477768\"}}\n","kubernetes.io/limit-ranger":"Limi
+Ranger plugin set: cpu, memory request for container wildfly10; cpu, memory limit for container wildfly10","openshift.io/deployment-config.latest-version":"1","openshift.io/deployment-config.name":"w
+ldfly10","openshift.io/deployment.name":"wildfly10-1","openshift.io/scc":"restricted"}},"spec":{"volumes":[{"name":"default-token-gepn2","secret":{"secretName":"default-token-gepn2"}}],"containers":[
+"name":"wildfly10","image":"172.30.47.227:5000/jhsdjkas/wildfly10@sha256:71c63f5886d6ee0c41d1ce4b6bbd650504acf9d739d6b61088723f25f53e894d","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources
+:{"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"60m","memory":"307Mi"}},"volumeMounts":[{"name":"default-token-gepn2","readOnly":true,"mountPath":"/var/run/secrets/kubernetes.io/serviceacc
+unt"}],"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always","securityContext":{"capabilities":{"drop":["KILL","MKNOD","NET_RAW","SETGID","SETUID","SYS_CHROOT"]},"privileged":fal
+e,"seLinuxOptions":{"level":"s0:c152,c14"},"runAsUser":1022980000}}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","nodeSelector":{"type":"compute"},"host":"i
+-172-31-8-207.ec2.internal","serviceAccountName":"default","serviceAccount":"default","nodeName":"ip-172-31-8-207.ec2.internal","securityContext":{"seLinuxOptions":{"level":"s0:c152,c14"},"fsGroup":1
+22980000},"imagePullSecrets":[{"name":"default-dockercfg-k8x9m"}]},"status":{"phase":"Running","conditions":[{"type":"Initialized","status":"True","lastProbeTime":null,"lastTransitionTime":"2016-12-1
+T07:38:53Z"},{"type":"Ready","status":"True","lastProbeTime":null,"lastTransitionTime":"2016-12-16T07:39:12Z"},{"type":"PodScheduled","status":"True","lastProbeTime":null,"lastTransitionTime":"2016-1
+-16T07:38:53Z"}],"hostIP":"172.31.8.207","podIP":"10.1.79.2","startTime":"2016-12-16T07:38:53Z","containerStatuses":[{"name":"wildfly10","state":{"running":{"startedAt":"2016-12-16T07:39:12Z"}},"last
+tate":{},"ready":true,"restartCount":0,"image":"172.30.47.227:5000/jhsdjkas/wildfly10@sha256:71c63f5886d6ee0c41d1ce4b6bbd650504acf9d739d6b61088723f25f53e894d","imageID":"docker-pullable://172.30.47.2
+7:5000/jhsdjkas/wildfly10@sha256:71c63f5886d6ee0c41d1ce4b6bbd650504acf9d739d6b61088723f25f53e894d","containerID":"docker://fadba783bd71d50aac65228a9248b470a89bc86d8661542bc0cb70cf791d344f"}]}}
+I1217 22:04:36.808690   12928 round_trippers.go:296] GET https://api.preview.openshift.com:443/api
+I1217 22:04:36.808690   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:36.814690   12928 round_trippers.go:306]     Accept: application/json, */*
+I1217 22:04:36.818690   12928 round_trippers.go:306]     User-Agent: oc/v1.3.0+52492b4 (windows/amd64) kubernetes/52492b4
+I1217 22:04:36.821691   12928 round_trippers.go:306]     Authorization: Bearer IqtWp6uL9VxAMGC9YarbEnUfqHTBi2-_5lBEDYleO7o
+I1217 22:04:37.244715   12928 round_trippers.go:321] Response Status: 200 OK in 420 milliseconds
+I1217 22:04:37.245715   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:37.246715   12928 round_trippers.go:327]     Cache-Control: no-store
+I1217 22:04:37.250715   12928 round_trippers.go:327]     Content-Type: application/json
+I1217 22:04:37.253715   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:45 GMT
+I1217 22:04:37.256716   12928 round_trippers.go:327]     Content-Length: 134
+I1217 22:04:37.260716   12928 request.go:901] Response Body: {"kind":"APIVersions","versions":["v1"],"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]}
+I1217 22:04:37.264716   12928 round_trippers.go:296] GET https://api.preview.openshift.com:443/apis
+I1217 22:04:37.267716   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:37.270716   12928 round_trippers.go:306]     Accept: application/json, */*
+I1217 22:04:37.274717   12928 round_trippers.go:306]     User-Agent: oc/v1.3.0+52492b4 (windows/amd64) kubernetes/52492b4
+I1217 22:04:37.276717   12928 round_trippers.go:306]     Authorization: Bearer IqtWp6uL9VxAMGC9YarbEnUfqHTBi2-_5lBEDYleO7o
+I1217 22:04:37.726742   12928 round_trippers.go:321] Response Status: 200 OK in 446 milliseconds
+I1217 22:04:37.726742   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:37.727742   12928 round_trippers.go:327]     Cache-Control: no-store
+I1217 22:04:37.731743   12928 round_trippers.go:327]     Content-Type: application/json
+I1217 22:04:37.734743   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:45 GMT
+I1217 22:04:37.738743   12928 round_trippers.go:327]     Content-Length: 1372
+I1217 22:04:37.742743   12928 request.go:901] Response Body: {"kind":"APIGroupList","groups":[{"name":"apps","versions":[{"groupVersion":"apps/v1alpha1","version":"v1alpha1"}],"preferredVersion":{"gr
+upVersion":"apps/v1alpha1","version":"v1alpha1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]},{"name":"authentication.k8s.io","versions":[{"groupVersi
+n":"authentication.k8s.io/v1beta1","version":"v1beta1"}],"preferredVersion":{"groupVersion":"authentication.k8s.io/v1beta1","version":"v1beta1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0
+,"serverAddress":"172.31.10.24:443"}]},{"name":"autoscaling","versions":[{"groupVersion":"autoscaling/v1","version":"v1"}],"preferredVersion":{"groupVersion":"autoscaling/v1","version":"v1"},"serverA
+dressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]},{"name":"batch","versions":[{"groupVersion":"batch/v1","version":"v1"},{"groupVersion":"batch/v2alpha1","version":
+v2alpha1"}],"preferredVersion":{"groupVersion":"batch/v1","version":"v1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serverAddress":"172.31.10.24:443"}]},{"name":"extensions","versions"
+[{"groupVersion":"extensions/v1beta1","version":"v1beta1"}],"preferredVersion":{"groupVersion":"extensions/v1beta1","version":"v1beta1"},"serverAddressByClientCIDRs":[{"clientCIDR":"0.0.0.0/0","serve
+Address":"172.31.10.24:443"}]}]}
+I1217 22:04:37.750744   12928 round_trippers.go:296] POST https://api.preview.openshift.com:443/api/v1/namespaces/jhsdjkas/pods/wildfly10-1-2y6fj/portforward
+I1217 22:04:37.751744   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:37.752744   12928 round_trippers.go:306]     X-Stream-Protocol-Version: portforward.k8s.io
+I1217 22:04:37.755744   12928 round_trippers.go:296] POST https://api.preview.openshift.com:443/api/v1/namespaces/jhsdjkas/pods/wildfly10-1-2y6fj/portforward
+I1217 22:04:37.759744   12928 round_trippers.go:303] Request Headers:
+I1217 22:04:37.762744   12928 round_trippers.go:306]     User-Agent: oc/v1.3.0+52492b4 (windows/amd64) kubernetes/52492b4
+I1217 22:04:37.766745   12928 round_trippers.go:306]     Authorization: Bearer IqtWp6uL9VxAMGC9YarbEnUfqHTBi2-_5lBEDYleO7o
+I1217 22:04:37.769745   12928 round_trippers.go:306]     X-Stream-Protocol-Version: portforward.k8s.io
+I1217 22:04:39.972871   12928 round_trippers.go:321] Response Status: 101 Switching Protocols in 2200 milliseconds
+I1217 22:04:39.973871   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:39.975871   12928 round_trippers.go:327]     Connection: Upgrade
+I1217 22:04:39.979871   12928 round_trippers.go:327]     Upgrade: SPDY/3.1
+I1217 22:04:39.982871   12928 round_trippers.go:327]     X-Stream-Protocol-Version: portforward.k8s.io
+I1217 22:04:39.985872   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:47 GMT
+I1217 22:04:39.988872   12928 round_trippers.go:321] Response Status: 101 Switching Protocols in 2233 milliseconds
+I1217 22:04:39.991872   12928 round_trippers.go:324] Response Headers:
+I1217 22:04:39.995872   12928 round_trippers.go:327]     Connection: Upgrade
+I1217 22:04:39.999872   12928 round_trippers.go:327]     Upgrade: SPDY/3.1
+I1217 22:04:40.002873   12928 round_trippers.go:327]     X-Stream-Protocol-Version: portforward.k8s.io
+I1217 22:04:40.005873   12928 round_trippers.go:327]     Date: Sat, 17 Dec 2016 15:04:47 GMT
+Forwarding from 127.0.0.1:9990 -> 9990
+Forwarding from [::1]:9990 -> 9990
+
+//stuck here and still running (03:25:00 -> almost 5.5 hours)
